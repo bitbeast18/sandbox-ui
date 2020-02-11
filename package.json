@@ -1,5 +1,6 @@
 {
   "name": "sandbox-ui",
+  "author": "Harshal Nandigramwar <pro.bbcom18@gmail.com>",
   "version": "0.1.0",
   "private": true,
   "scripts": {
