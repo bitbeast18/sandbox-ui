@@ -10,6 +10,6 @@ git init
 git add -A
 git commit -m 'deployment'
 
-git push -f git@github.com:bitbeast18/sandbox-ui.git master:gh-pages
+git push -f "https://github.com/bitbeast18/sandbox-ui.git" master:gh-pages
 
 cd -
