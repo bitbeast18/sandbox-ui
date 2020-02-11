@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+import Home from '@/views/Home.vue';
+import createTest from '@/views/createTest.vue';
+import manageTest from '@/views/manageTest.vue';
+import addMCQ from '@/views/addMCQ.vue';
+import addCodeTask from '@/views/addCodeTask.vue';
+import addWritingTask from '@/views/addWritingTask.vue';
+
 
 Vue.use(VueRouter)
 
@@ -11,13 +18,31 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/createTest',
+    name: 'CreateTest',
+    component: createTest
+  },
+  {
+    path: '/manageTest',
+    name: 'ManageTest',
+    component: manageTest
+  },
+  {
+    path: '/addMCQ',
+    name: 'AddMCQ',
+    component: addMCQ
+  },
+  {
+    path: '/addCodeTask',
+    name: 'AddCodeTask',
+    component: addCodeTask
+  },
+  {
+    path: '/addWritingTask',
+    name: 'AddWritingTask',
+    component: addWritingTask
+  },
+  
 ]
 
 const router = new VueRouter({
