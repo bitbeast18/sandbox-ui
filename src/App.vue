@@ -28,7 +28,11 @@ export default {
 
   computed: {
     createMode: function(){
-      return this.$store.state.createMode;
+      if(this.$route.name === 'Home' || this.$route.name === 'ManageTest'){
+        return false;
+      } else {
+        return true;
+      }
     }
   }
   

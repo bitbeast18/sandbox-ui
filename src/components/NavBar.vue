@@ -32,7 +32,6 @@ export default {
             this.$router.push('/addWritingTask');
         },
         submitExit: function(){
-            this.$store.commit('setCreateMode', false);
             this.$router.push('/');
         }
     }

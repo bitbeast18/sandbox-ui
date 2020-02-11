@@ -5,13 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    createMode: false,
   },
   mutations: {
-
-    setCreateMode(state, val){
-      state.createMode = val;
-    }
 
   },
   actions: {
