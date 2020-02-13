@@ -25,7 +25,7 @@
 
         <v-card-actions class="pb-5">
             <v-spacer></v-spacer>
-            <v-btn class="mr-5"> add more </v-btn>
+            <v-btn class="mr-5"> add question </v-btn>
             <v-btn class="mr-5"> next section </v-btn>
         </v-card-actions>
     </v-card>
