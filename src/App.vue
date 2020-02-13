@@ -28,7 +28,7 @@ export default {
 
   computed: {
     createMode: function(){
-      if(this.$route.name === 'Home' || this.$route.name === 'ManageTest'){
+      if(this.$route.name === 'Home' || this.$route.name === 'ManageTest' || this.$route.name === 'Landing'){
         return false;
       } else {
         return true;

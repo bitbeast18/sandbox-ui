@@ -7,6 +7,7 @@ import manageTest from '@/views/manageTest.vue';
 import addMCQ from '@/views/addMCQ.vue';
 import addCodeTask from '@/views/addCodeTask.vue';
 import addWritingTask from '@/views/addWritingTask.vue';
+import landing from '@/views/landing.vue';
 
 
 Vue.use(VueRouter)
@@ -16,6 +17,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/landing',
+    name: 'Landing',
+    component: landing
   },
   {
     path: '/createTest',
