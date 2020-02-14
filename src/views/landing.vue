@@ -74,8 +74,8 @@ export default {
 
   methods: {
     close: function() {
-      this.$router.push("/");
       this.$store.commit("resetStore");
+      this.$router.push("/");
     }
   }
 };

@@ -30,5 +30,34 @@ export default {
             alert(err.message);
         })
 
+    },
+
+    startLogging({state, commit}, payload){
+
+        commit('changeLogLoader', true);
+
+        db.collection('testBunch').doc(payload.testId).get().then((ref) => {
+
+            if(ref.data().password === payload.password){
+
+                db.collection('activeTestTakers').doc(payload.testId).get()
+                .then((newref) => {
+                    state.testtakers = Object.keys(newref.data());
+                    commit('changeLogLoader', false);
+                }).catch(err => {
+                    console.log(err);
+                    commit('changeLogLoader', false);
+                })
+
+            } else {
+                commit('changeLogLoader', false);
+                commit('activateSnackbar', "Wrong password! Try again");
+            }
+
+        }).catch(err => {
+            console.log(err.message);
+            commit('changeLogLoader', false);
+        })
+
     }
 }

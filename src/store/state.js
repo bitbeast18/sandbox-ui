@@ -9,5 +9,13 @@ export default {
     swreq: [],
 
     loader: false,
+    logLoader: false,
+
+    snackbar: false,
+    snackbarText: "",
+
+
+    testtakers: [],
+    logs: []
 
 }

@@ -15,7 +15,20 @@ export default {
     },
 
     addQuestion(state, payload){
-        console.log(payload);
         state.questions.push(payload);
+    },
+
+    activateSnackbar(state, payload){
+        state.snackbar = true;
+        state.snackbarText = payload;
+    },
+
+    deactivateSnackbar(state){
+        state.snackbar = false;
+        state.snackbarText = "";
+    },
+
+    changeLogLoader(state, payload){
+        state.logLoader = payload;
     }
 }
