@@ -41,7 +41,7 @@
       </v-list-item-group>
     </v-list>
     <v-spacer></v-spacer>
-    <v-btn large class="ma-4 grey lighten-1 elevation-1" @click="submit">Submit</v-btn>
+    <v-btn :loading="loader" large class="ma-4 grey lighten-1 elevation-1" @click="submit">Submit</v-btn>
   </div>
 </template>
 
@@ -71,9 +71,15 @@ export default {
     }
   },
 
+  computed: {
+    loader: function(){
+      return this.$store.state.loader;
+    }
+  },
+
   methods: {
     submit: function(){
-      this.$router.push('/landing');
+      this.$store.dispatch('submit');
     }
     
   }

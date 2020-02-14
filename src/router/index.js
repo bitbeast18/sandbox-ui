@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 import Home from '@/views/Home.vue';
 import createTest from '@/views/createTest.vue';
@@ -16,12 +16,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
     path: '/landing',
     name: 'Landing',
-    component: landing
+    component: landing,
   },
   {
     path: '/createTest',
@@ -48,7 +48,7 @@ const routes = [
     name: 'AddWritingTask',
     component: addWritingTask
   },
-  
+
 ]
 
 const router = new VueRouter({

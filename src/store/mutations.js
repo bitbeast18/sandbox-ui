@@ -1,17 +1,21 @@
 export default {
     resetStore(state){
         state.testId = null;
-        state.testAuthor = null;
-        state.questions = []
+        state.userEmail = null;
+        state.questions = [],
+        state.swreq = []
     },
 
-    setTestDetails(state, payload){
-        state.userEmail = payload.email;
-        state.swreq = payload.swreq;
+    setSWReq(state, payload){
+        state.swreq = payload;
+    },
+
+    setUserEmail(state, payload){
+        state.userEmail = payload;
     },
 
     addQuestion(state, payload){
-        state.questions.push(payload);
         console.log(payload);
+        state.questions.push(payload);
     }
 }

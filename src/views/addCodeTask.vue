@@ -5,9 +5,9 @@
         <v-card-text>
             <v-form>
                 <v-subheader>
-                    Problem Statement
+                    Question Statement
                 </v-subheader>
-                <v-textarea v-model="problemStatement" outlined filled></v-textarea>
+                <v-textarea v-model="questionStatement" outlined filled></v-textarea>
                 
                 <v-subheader>
                     Constraints
@@ -37,10 +37,19 @@
 
 <script>
 export default {
+
+    beforeRouteLeave(to, from, next){
+        if(this.questionStatement !== "" || this.constraints !== "" || this.sample_in !== "" || this.sample_out !== ""){
+            alert('You have unsaved edits! Press "Add question" to save');
+            next(false);
+        } else {
+            next();
+        }
+    },
     
     data(){
         return {
-            problemStatement: "",
+            questionStatement: "",
             constraints: "",
             sample_in: "",
             sample_out: "",
@@ -51,7 +60,7 @@ export default {
         addQuestion: function(){
             this.$store.commit('addQuestion', {
                 type: 'Coding Task',
-                problemStatement: this.problemStatement,
+                questionStatement: this.questionStatement,
                 constraints: this.constraints,
                 sample_in: this.sample_in,
                 sample_out: this.sample_out

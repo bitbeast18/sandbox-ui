@@ -3,7 +3,7 @@
       <AppBar>
       </AppBar>
 
-      <v-navigation-drawer :value="createMode" width="25%" app>
+      <v-navigation-drawer v-if="createMode" width="25%" app>
         <NavBar></NavBar>
       </v-navigation-drawer>
 

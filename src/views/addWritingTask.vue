@@ -26,6 +26,15 @@
 
 <script>
 export default {
+
+      beforeRouteLeave(to, from, next){
+        if(this.questionStatement !== "" || this.wordLimit !== ""){
+            alert('You have unsaved edits! Press "Add question" to save');
+            next(false);
+        } else {
+            next();
+        }
+    },
     
     data(){
         return {

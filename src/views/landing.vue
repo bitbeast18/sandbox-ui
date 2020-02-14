@@ -8,30 +8,30 @@
 
       <v-row justify="space-around">
         <v-col cols="3">
-          <p class>Test ID</p>
-          <p>{{testId}}</p>
+          <v-subheader class="pl-0">Test ID</v-subheader>
+          <p class="font-weight-bold">{{testId}}</p>
         </v-col>
 
         <v-col cols="3">
-          <p>Created By :</p>
-          <p>{{testAuthor}}</p>
+          <v-subheader class="pl-0">Created By</v-subheader>
+          <p class="font-weight-bold">{{testAuthor}}</p>
         </v-col>
         <v-col cols="3">
-          <p>Problems count :</p>
-          <p>{{problemCount}}</p>
+          <v-subheader class="pl-0">Questions count</v-subheader>
+          <p class="font-weight-bold">{{questionCount}}</p>
         </v-col>
       </v-row>
       <v-divider></v-divider>
 
       <v-card-text>
-        <v-subheader>Problems</v-subheader>
+        <v-subheader>Questions</v-subheader>
 
-        <v-row v-for="(problem, idx) in problems" :key="idx">
-          <v-col cols="!2">
+        <v-row v-for="(question, idx) in questions" :key="idx">
+          <v-col cols="12">
             <v-card class="grey lighten-3">
-              <v-card-title>Problem {{idx + 1}}</v-card-title>
-              <v-card-subtitle>{{problem.type}}</v-card-subtitle>
-              <v-card-text>{{problem.statement}}</v-card-text>
+              <v-card-title>Question {{idx + 1}}</v-card-title>
+              <v-card-subtitle>{{question.type}}</v-card-subtitle>
+              <v-card-text>{{question.questionStatement}}</v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -45,19 +45,30 @@
 </template>
 
 <script>
+
 export default {
+
+  beforeRouteLeave(to, from, next){
+    if(confirm("Are you sure you want to exit? Make sure you've noted the Test ID")){
+      this.$store.commit('resetStore');
+      next();
+    } else {
+      next(false);
+    }
+  },
+
   computed: {
-    problems() {
-      return this.$store.state.problems;
+    questions() {
+      return this.$store.state.questions;
     },
-    testId() {
+    testId(){
       return this.$store.state.testId;
     },
     testAuthor() {
-      return this.$store.state.testAuthor;
+      return this.$store.state.userEmail;
     },
-    problemCount() {
-      return this.$store.state.problems.length;
+    questionCount() {
+      return this.$store.state.questions.length;
     }
   },
 
